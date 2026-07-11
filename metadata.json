@@ -1,0 +1,6 @@
+{
+  "name": "Balaji Constructions",
+  "description": "Premium luxury, commercial, and infrastructure construction portal with interactive showcase, custom estimation tools, and project management dashboard.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,26 @@
+# Netlify Production Configuration File
+# Configures the build settings, SPA routing fallback, and client-side performance headers.
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# Single Page Application (SPA) routing fallback
+# Ensures any sub-paths or browser reloads route correctly to index.html with a 200 status
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Performance Optimizations - Asset Caching
+# Since Vite generates unique hashes for files in /assets/*, we can cache them indefinitely
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Ensure the main entry point is never cached stale, so users always get the latest version
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
